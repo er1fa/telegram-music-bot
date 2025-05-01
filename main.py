@@ -12,13 +12,13 @@ def extract_artist_hashtags(artist: str):
     if not artist:
         return []
 
-    separators = ['&', 'ft.', 'ft', 'Ft.', 'Ft']
+    separators = ['&', 'ft.', 'ft', 'Ft.', 'Ft', 'feat', 'Feat.', 'Feat']
     pattern = '|'.join(map(re.escape, separators))
     parts = re.split(pattern, artist, flags=re.IGNORECASE)
 
     hashtags = []
     for part in parts:
-        tag = part.strip().lower().replace(" ", "_")
+        tag = part.strip().replace(" ", "_")
         if tag:
             hashtags.append(f"#{tag}")
     return hashtags
