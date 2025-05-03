@@ -26,7 +26,7 @@ def extract_artist_hashtags(artist: str):
 @app.on_message(filters.channel & filters.audio)
 async def on_audio(client, message):
     audio = message.audio
-    artist = audio.performer  # اینجا تغییر اصلیه
+    artist = audio.performer
 
     hashtags = extract_artist_hashtags(artist)
     if not hashtags:
